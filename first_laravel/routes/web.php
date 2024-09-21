@@ -1,20 +1,31 @@
 <?php
 
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::middleware("auth")->group(function () {
-    Route::get('/hello', function () {
-        return view('hello');
-    });
-    Route::get('/aboutMe', function () {
-        return view('aboutme');
-    });
-});
+
+
+Route::prefix("info")->as('info.')->group(function () {
+
+    Route::get('/',[ InfoController::class, 'index'])->name('index');
+    Route::get('/create',[ InfoController::class, 'create'])->name('create');
+    Route::get('/edit/{id}',[ InfoController::class, 'edit'])->name('edit');
+    Route::get('/delete/{id}',[ InfoController::class, 'delete'])->name('delete');
+    Route::get('/info/{id}',[ InfoController::class, 'info'])->name('info');
+    Route::post('/store',[ InfoController::class, 'store'])->name('store');
+    Route::post('/update',[ InfoController::class, 'update'])->name('update');
+
+})->middleware(['auth']);
+
+
+Route::get('/about-me', function () {
+    return view('aboutMe');
+})->name('aboutMe');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

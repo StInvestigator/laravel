@@ -14,9 +14,9 @@ Route::prefix("info")->as('info.')->group(function () {
 
     Route::get('/',[ InfoController::class, 'index'])->name('index');
     Route::get('/create',[ InfoController::class, 'create'])->name('create');
-    Route::get('/edit/{id}',[ InfoController::class, 'edit'])->name('edit');
-    Route::get('/delete/{id}',[ InfoController::class, 'delete'])->name('delete');
-    Route::get('/info/{id}',[ InfoController::class, 'info'])->name('info');
+    Route::get('/edit/{info}',[ InfoController::class, 'edit'])->name('edit');
+    Route::delete('/delete/{info}',[ InfoController::class, 'delete'])->name('delete');
+    Route::get('/info/{info}',[ InfoController::class, 'info'])->name('info');
     Route::post('/store',[ InfoController::class, 'store'])->name('store');
     Route::post('/update',[ InfoController::class, 'update'])->name('update');
 

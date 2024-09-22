@@ -32,9 +32,9 @@ class InfoController extends Controller
 
         return to_route('info.index');
     }
-    public function edit(int $id): View
+    public function edit(Info $info): View
     {
-        return view("info.edit",["model" => Info::where('id','=', $id)->first()]);
+        return view("info.edit",["model" => $info]);
     }
 
     public function update(FormRequest $request)/*:  Application | RedirectResponse */
@@ -57,14 +57,14 @@ class InfoController extends Controller
         return to_route('info.index');
     }
 
-    public function info(int $id): View
+    public function info(Info $info): View
     {
-        return view("info.info",["model" => Info::where('id','=', $id)->first()]);
+        return view("info.info",["model" => $info]);
     }
 
-    public function delete(int $id)
+    public function delete(Info $info)
     {
-        Info::where('id','=', $id)->delete();
+       $info->delete();
         return to_route('info.index');
     }
 }

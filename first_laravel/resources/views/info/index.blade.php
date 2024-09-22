@@ -31,9 +31,9 @@ use App\Models\Info;
             <th scope="col"><span>{{$model->first_name.' '}}</span>{{$model->last_name}}</th>
             <th scope="col">{{$model->is_active?'Yes':'No'}}</th>
             <th>
-                <a class="btn btn-outline-success fs-5 w-25" href="{{route('info.info',['id'=>$model->id])}}">Info</a>
-                <a class="btn btn-outline-warning fs-5 w-25" href="{{route('info.edit',['id'=>$model->id])}}">Edit</a>
-                <a class="btn btn-outline-danger fs-5 w-25" href="{{route('info.delete',['id'=>$model->id])}}">Delete</a>
+                <a class="btn btn-outline-success fs-5 w-25" href="{{route('info.info',['info'=>$model])}}">Info</a>
+                <a class="btn btn-outline-warning fs-5 w-25" href="{{route('info.edit',['info'=>$model])}}">Edit</a>
+                <a class="btn btn-outline-danger fs-5 w-25" href="{{route('info.delete',['info'=>$model])}}">Delete</a>
             </th>
         </tr>
         @endforeach

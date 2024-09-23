@@ -4,7 +4,7 @@
 
 @section('content')
 <h2 class="display-3">Create the Info</h2>
-<form method="post" action="{{ route('info.store') }}">
+<form method="post" action="{{ route('info.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="mb-3 fs-3">
         @include("info._form_fields")

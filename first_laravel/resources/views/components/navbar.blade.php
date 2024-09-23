@@ -12,7 +12,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{Route::currentRouteName() == 'info.index' ? 'active' : ''}}"
-                        href={{route('info.index')}}>Infos</a>
+                        href={{route('info.index',[0])}}>Infos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{Route::currentRouteName() == 'info.details' ? 'active' : ''}}"

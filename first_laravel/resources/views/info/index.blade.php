@@ -23,17 +23,19 @@
     <thead>
         <tr scope="row">
             <th scope="col">#</th>
-            <th scope="col">Full name</th>
-            <th scope="col">Active</th>
-            <th scope="col"></th>
+            <th>Avatar</th>
+            <th>Full name</th>
+            <th>Active</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach ($models as $model)
             <tr scope="row">
-                <th scope="col">{{$model->id}}</th>
-                <th scope="col"><span>{{$model->first_name . ' '}}</span>{{$model->last_name}}</th>
-                <th scope="col">{{$model->is_active ? 'Yes' : 'No'}}</th>
+                <th  scope="col">{{$model->id}}</th>
+                <th style="padding:2px"><img style="width:50px; height:50px; border-radius:100%; margin:3px 0 0 15px;" src="{{$model->image?$model->image->src:Storage::disk("infos")->url('guest.jpg')}}" /></th>
+                <th><span>{{$model->first_name . ' '}}</span>{{$model->last_name}}</th>
+                <th>{{$model->is_active ? 'Yes' : 'No'}}</th>
                 <th>
                     <a class="btn btn-outline-success fs-5 w-25" href="{{route('info.info', ['info' => $model])}}">Info</a>
                     <a class="btn btn-outline-warning fs-5 w-25" href="{{route('info.edit', ['info' => $model])}}">Edit</a>

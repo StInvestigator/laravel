@@ -27,3 +27,10 @@ is-invalid @enderror" type="date" value="{{ old(key: 'birthday') ?? $model->birt
 @error('birthday')
     <div class="alert alert-danger p-2">{{ $message }}</div>
 @enderror
+
+<label for="image" class="form-label"></label>
+<input name="image" class="form-control" type="file" accept="image/*"
+    value="{{old(key: 'image') ?? $model->image ?? null}}">
+@error('image')
+    <div class="alert alert-danger p-2">{{ $message }}</div>
+@enderror

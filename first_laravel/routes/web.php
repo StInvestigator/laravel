@@ -20,6 +20,7 @@ Route::prefix("info")->as('info.')->group(function () {
     Route::post('/store',[ InfoController::class, 'store'])->name('store');
     Route::post('/update/{prevInfo}',[ InfoController::class, 'update'])->name('update');
     Route::get('/cards',[ InfoController::class, 'cards'])->name('cards');
+    Route::get('/cards_list/{searched?}',[ InfoController::class, 'cards_list'])->name('cards_list');
 
 })->middleware(['auth']);
 

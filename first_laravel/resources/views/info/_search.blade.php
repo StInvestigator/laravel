@@ -4,7 +4,7 @@
             <span class="input-group-text">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </span>
-            <input type="text" class="form-control" placeholder="На кого шукаєте?" />
+            <input type="text" class="form-control searcher" placeholder="На кого шукаєте?" />
         </div>
     </div>
 </div>

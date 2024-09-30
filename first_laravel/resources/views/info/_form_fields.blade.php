@@ -1,6 +1,7 @@
 @php /**
      * @var \App\Models\Info $model
  */@endphp
+ 
 <label for="first_name " class="form-label">First name</label>
 <input name="first_name" class="form-control my-2 fs-4 @error('first_name')
 is-invalid @enderror" value="{{ old('first_name') ?? $model->first_name ?? '' }}">

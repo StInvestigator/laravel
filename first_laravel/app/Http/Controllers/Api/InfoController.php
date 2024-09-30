@@ -9,6 +9,7 @@ use App\Models\Transformers\FeedbackTransformer;
 use App\Models\Transformers\InfoTransformer;
 use Flugg\Responder\Responder;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class InfoController extends Controller
 {
@@ -20,20 +21,19 @@ class InfoController extends Controller
     public function index(): JsonResponse
     {
         return $this->responder
-            ->success(Info::all(), InfoTransformer::class)->with(['image','feedbacks','last3feedbacks'])
+            ->success(Info::all(), InfoTransformer::class)->with(['image', 'feedbacks', 'last3feedbacks'])
             ->respond();
-
     }
     public function oneInfo(Info $info): JsonResponse
     {
         return $this->responder
-            ->success($info, InfoTransformer::class)->with(['image','feedbacks','last3feedbacks'])
+            ->success($info, InfoTransformer::class)->with(['image', 'feedbacks', 'last3feedbacks'])
             ->respond();
     }
-    public function feedback(Feedback $feedback): JsonResponse
+    public function feedbacks(Info $info): JsonResponse
     {
         return $this->responder
-            ->success($feedback, FeedbackTransformer::class)->with(['info.image'])
+            ->success($info->feedbacks, FeedbackTransformer::class)->with(['info'])
             ->respond();
     }
     public function last3feedbacks(Info $info): JsonResponse
@@ -41,5 +41,12 @@ class InfoController extends Controller
         return $this->responder
             ->success($info->last3feedbacks, FeedbackTransformer::class)
             ->respond();
+    }
+    public function saveFeedback(Info $info, Request $request)
+    {
+        $feedback = new Feedback(["rating"=>$request['rating'],"comment"=>$request['comment']]);
+        $info->feedbacks()->save($feedback);
+        // $info->feedbacks()->save($feedback);
+        return $this->responder->success($feedback, FeedbackTransformer::class)->respond();
     }
 }

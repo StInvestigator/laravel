@@ -8,5 +8,7 @@ Route::prefix("v1")->group(function () {
     Route::get("/infos",[InfoController::class,"index"]);
     Route::get("/info/{info}",[InfoController::class,"oneInfo"]);
 
-    Route::get("/feedback/{feedback}",[InfoController::class,"feedback"]);
+    Route::get("/feedbacks/{info}",[InfoController::class,"feedbacks"]);
+    Route::get("/feedbacks/last3/{info}",[InfoController::class,"last3feedbacks"]);
+    Route::post("/saveFeedback/{info}",[InfoController::class,"saveFeedback"]);
 });

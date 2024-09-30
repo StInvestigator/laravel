@@ -95,4 +95,11 @@ class InfoController extends Controller
     {
         return view("info.cards", ["models" => Info::all()]);
     }
+
+    public function cards_list(string $searched = ""): View
+    {
+        $searched = strtolower($searched);
+
+        return view("info._cards_list", ["models" => Info::whereRaw("lower(first_name) like ? or lower(last_name) like ?", ["%{$searched}%","%{$searched}%"])->get()]);
+    }
 }

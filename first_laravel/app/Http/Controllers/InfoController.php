@@ -90,4 +90,9 @@ class InfoController extends Controller
         $info->delete();
         return to_route('info.index',[0]);
     }
+
+    public function cards(): View
+    {
+        return view("info.cards", ["models" => Info::all()]);
+    }
 }

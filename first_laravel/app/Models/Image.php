@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Image extends Model
 {
-    protected $table = "Images";
+    protected $table = "images";
 
     protected $fillable = ['original_filename','filename','disk'];
 

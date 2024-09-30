@@ -7,8 +7,8 @@
         <div class="collapse navbar-collapse fs-4" id="navbarNav">
             <ul class="navbar-nav ms-2 d-flex">
                 <li class="nav-item">
-                    <a class="nav-link {{Route::currentRouteName() == 'welcome' ? 'active' : ''}}" aria-current="page"
-                        href="/">Home</a>
+                    <a class="nav-link {{Route::currentRouteName() == 'cards' ? 'active' : ''}}" aria-current="page"
+                        href="{{route('info.cards')}}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{Route::currentRouteName() == 'info.index' ? 'active' : ''}}"

@@ -8,7 +8,7 @@
             <ul class="navbar-nav ms-2 d-flex">
                 <li class="nav-item">
                     <a class="nav-link {{Route::currentRouteName() == 'cards' ? 'active' : ''}}" aria-current="page"
-                        href="{{route('info.cards')}}">Home</a>
+                        href="{{route('info.cards')}}">Cards</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{Route::currentRouteName() == 'info.index' ? 'active' : ''}}"

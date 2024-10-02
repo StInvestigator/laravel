@@ -5,6 +5,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix("v1")->group(function () {
 
+    Route::prefix('auth')->group(function () {
+        Route::post('login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+        Route::post('register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+        Route::post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout'])
+        ->middleware('auth:sanctum');
+        Route::get('profile', [\App\Http\Controllers\Api\AuthController::class, 'profile'])
+            ->middleware('auth:sanctum');
+    });
+
     Route::get("/infos",[InfoController::class,"index"]);
     Route::get("/info/{info}",[InfoController::class,"oneInfo"]);
 
